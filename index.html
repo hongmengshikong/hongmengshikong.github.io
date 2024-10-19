@@ -313,7 +313,7 @@
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -373,7 +373,7 @@
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">7</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -390,6 +390,273 @@
                 
                     <div class="home-content-container">
     <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2024/10/19/1-5.iptables%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BF%9D%E5%AD%98%E4%B8%8E%E8%BF%98%E5%8E%9F/">
+                            iptables配置的保存与还原
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            【实验目的】配置Iptables规则后不能自动保存，一旦重启就会丢失配置的规则并恢复为默认策略，针对这个问题，本实验对保存和还原iptables进行了配置。
+【知识点】iptables配置文件
+【实验原理】防火墙规则的批量备份、还原两个命令，分别是：iptables-save和iptables-restore，用来保存和恢复。下图是典型的防火墙规则导出后的文件。
+上述输出的各项含义：
+
+#号...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sat Oct 19 2024 20:08:30 GMT+0800">
+                
+                    2024-10-19
+                
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a href="/2024/10/19/1-5.iptables%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BF%9D%E5%AD%98%E4%B8%8E%E8%BF%98%E5%8E%9F/">阅读全文<span class="seo-reader-text">iptables配置的保存与还原</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2024/10/19/1-4.Iptables%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+                            Iptables配置文件
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            【实验目的】了解Iptables配置文件的相关内容，通过更改配置文件，了解相关命令。
+【知识点】iptables配置文件
+【实验原理】iptables服务的配置文件是&#x2F;etc&#x2F;sysconfig&#x2F;iptables-config，可以通过更改配置文件中的内容来更改控制iptables服务的行为。
+【软件工具】
+操作系统：Centos7
+其他：Iptables
+
+【...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sat Oct 19 2024 20:08:30 GMT+0800">
+                
+                    2024-10-19
+                
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a href="/2024/10/19/1-4.Iptables%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">阅读全文<span class="seo-reader-text">Iptables配置文件</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2024/10/19/1-3.iptables%20%E7%9A%84%E4%B8%BB%E8%A6%81%E5%91%BD%E4%BB%A4%E4%B8%8E%E6%89%A9%E5%B1%95%E5%8F%82%E6%95%B0/">
+                            iptables 的主要命令与扩展参数
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            【实验目的】了解 Iptables 常用封包匹配参数及其使用格式，利用常用命令参数进行 iptables 规则配置，使用 iptables  –icmp-type的 code对应表进行操作。
+【知识点】iptables 参数
+【实验原理】命令格式iptables [-t table] COMMAND chain CRETIRIA -j ACTION-t table : 3 个 filter ...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sat Oct 19 2024 20:08:30 GMT+0800">
+                
+                    2024-10-19
+                
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a href="/2024/10/19/1-3.iptables%20%E7%9A%84%E4%B8%BB%E8%A6%81%E5%91%BD%E4%BB%A4%E4%B8%8E%E6%89%A9%E5%B1%95%E5%8F%82%E6%95%B0/">阅读全文<span class="seo-reader-text">iptables 的主要命令与扩展参数</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2024/10/19/1-2.iptables%E8%A1%A8%E5%92%8C%E9%93%BE%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">
+                            iptables表和链的介绍与基础操作
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            【实验目的】了解Iptables中的表和链的原理，掌握对Iptables表和链的增删改查等操作，对Iptables配置规则进行详细查看。
+【知识点】iptables表，iptables链。
+【实验原理】iptables采用“表”和“链”的分层结构，在Linux中是四表五链结构，表链的存在在iptables中有重要的意义，通过对表链进行规则的策略配置，可以对系统的防火墙进行很好的安全维护。具体...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sat Oct 19 2024 20:08:30 GMT+0800">
+                
+                    2024-10-19
+                
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a href="/2024/10/19/1-2.iptables%E8%A1%A8%E5%92%8C%E9%93%BE%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/">阅读全文<span class="seo-reader-text">iptables表和链的介绍与基础操作</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2024/10/19/1-1.Iptables%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%86%85%E6%A0%B8%E9%85%8D%E7%BD%AE/">
+                            Iptables的安装与内核配置
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            【实验目的】了解iptables防火墙的基础知识，利用yum对防火墙iptables进行了安装，在配置文件进行内核优化配置。
+【知识点】iptables防火墙，iptables配置，iptables安装。
+【实验原理】1.防火墙的分类（1）从防火墙作用范围讲，防火墙可以大体分为主机防火墙和网络防火墙。主机防火墙：作用于单个计算机系统，例如个人电脑上windows自带的防火墙，linux系统上...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sat Oct 19 2024 20:08:19 GMT+0800">
+                
+                    2024-10-19
+                
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a href="/2024/10/19/1-1.Iptables%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%86%85%E6%A0%B8%E9%85%8D%E7%BD%AE/">阅读全文<span class="seo-reader-text">Iptables的安装与内核配置</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+                <div class="flex flex-col gap-5 px-7 pb-7 pt-7">
+                    <h3 class="home-article-title">
+                        <a href="/2024/10/19/%E5%85%A5%E9%97%A8%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E4%B9%8Bzico2/">
+                            入门靶机渗透之zico2
+                        </a>
+                    </h3>
+
+                    <div class="home-article-content markdown-body">
+                        
+                            
+                            在VMware中导入该虚拟机，导入完成后配置网卡，确保与自己的攻击机在同一网段，然后开启虚拟机先查看本机所在ip地址
+1ip addr
+
+
+收集信息通过&#x3D;&#x3D;arp&#x3D;&#x3D;协议扫描局域网，又快又准，但是只能扫描局域网内的ip。
+1arp-scan -l
+
+
+发现靶机的IP地址为 &#96;192.168.119.218，然后用nmap对靶机进行详细地扫描。
+...
+                        
+                    </div>
+
+                    <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Sat Oct 19 2024 20:00:34 GMT+0800">
+                
+                    2024-10-19
+                
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a href="/2024/10/19/%E5%85%A5%E9%97%A8%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E4%B9%8Bzico2/">阅读全文<span class="seo-reader-text">入门靶机渗透之zico2</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+                </div>
+            </li>
         
             <li class="home-article-item">
 
@@ -465,11 +732,11 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 1 篇文章
+                        共撰写了 7 篇文章
                     </span>
                     
                         <span>
-                            共 75 字
+                            共 10.2k 字
                         </span>
                     
                 </p>

